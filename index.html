@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>projectm2_2</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Подбор оптимального вклада</h1>
+    <div class="container">
+       
+        <div class="flex-container">
+            <div class="box">
+                <p>Начальная сумма </p>
+            </div>
+            <div>
+                <input type="number" id="startamount">
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="box">
+                <p>Сумма ежемесячного пополнения</p>
+            </div>
+            <div>
+                <input type="number" id="monthamount">
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="box">
+                <p>Срок вклада</p>
+            </div>
+            <div>
+                <input type="number" id="depositterm" >
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="box">
+                <p>Валюта вклада</p>
+            </div>
+            <div>
+                <select id="valuta" size="1">
+                    <option></option>
+                    <option>RUB</option>
+                    <option>USD</option>
+                </select>
+            </div>
+        </div>
+        <button id="button-count" class="button">Подобрать</button>
+        <!-- <p id="error" class="calculator-properties error"></p>
+        <p id="balance" class="calculator-properties error"></p> -->
+        
+
+    </div>
+    <table id="myTable">
+        
+        <tr id="firstlinetable">
+            <td>Название банка</td>
+            <td>Вклад</td>
+            <td>Процент</td>
+            <td>Итоговая сумма</td>
+          </tr>
+        
+      </table>
+
+
+    <script src="index.js"></script>
+</body>
+</html>
