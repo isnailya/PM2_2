@@ -38,7 +38,7 @@ class Calculator {
        // let a= typeof this.list[0];
              for (let i = 0; i<this.list.length;i++) 
              {
-                if(this.list[i].incomeType>=this.dep.percent && this.list[i].currency==this.dep.valuta && this.list[i].sumMin<=this.dep.startamount && this.list[i].termMin<=this.dep.depositterm && this.list[i].termMax>=this.dep.depositterm) {
+                if(this.list[i].incomeType>=this.dep.percent && this.list[i].currency==this.dep.valuta && this.list[i].sumMin<=this.dep.startamount && this.list[i].termMin<=this.dep.depositterm && this.list[i].termMax>=this.dep.depositterm && this.list[i].canDeposit==true) {
                    //let y = typeof list[i];
                     //this.array+= this.list[i] ;
                     this.array.push(this.list[i]);
