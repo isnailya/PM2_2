@@ -163,8 +163,7 @@ class Application {
             newarray=calculator.findBestBank();
             if (newarray==0) {
     
-                alert('net');
-                
+                alert('Нет подходящих вариантов');
             }
             else 
             {
@@ -182,8 +181,6 @@ class Application {
             } 
 
             calcres =  calculator.calcBankDeposit();
-            
-
              let table = document.getElementById('myTable');
              document.getElementById('firstlinetable').style.visibility='visible';
              
