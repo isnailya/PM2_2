@@ -27,7 +27,7 @@ class BankProduct {
 }
 
 class Calculator {
-    constructor(list ,dep) { /// list=[];
+    constructor(list ,dep) { 
         this.list =list;
         this.dep = dep;
         this.array=[];
@@ -46,20 +46,21 @@ class Calculator {
                    
             }
         return this.array;
+        
     }
      calcBankDeposit() {
-         let finalresult =this.dep.startamount;
 
             for(let j=0;j<this.array.length;j++)
             {
-                
-                let month = this.dep.depositterm -1;
+                let finalresult =this.dep.startamount;
+                let month = this.dep.depositterm;
                 for (let i = 0; i < month; i++)
                  {
                     finalresult = finalresult + this.dep.monthamount + finalresult * this.array[j].incomeType / 1200;
                    
                  }
-                 this.calc.push(finalresult);
+                 finalresult-=this.dep.monthamount
+                 this.calc.push(Math.round(finalresult));
             }
             return this.calc;
             
@@ -167,8 +168,21 @@ class Application {
             }
             else 
             {
+                function compare( a, b ) {
+                    if ( a.incomeType < b.incomeType ){
+                      return 1;
+                    }
+                    if ( a.incomeType > b.incomeType ){
+                      return -1;
+                    }
+                    // return 0;
+                  }
+                  newarray.sort( compare );
+                 
+            } 
 
-            calcres = calculator.calcBankDeposit();
+            calcres =  calculator.calcBankDeposit();
+            
 
              let table = document.getElementById('myTable');
              document.getElementById('firstlinetable').style.visibility='visible';
@@ -179,39 +193,30 @@ class Application {
                  table.deleteRow(i);
              }
         
-                for(let i=0;i<newarray.length;i++)
-                 {
-                      let row  = table.insertRow(i+1);
-                     let cell1 = row.insertCell(0);
-                     let cell2 = row.insertCell(1);
-                     let cell3 = row.insertCell(2);
-                     let cell4 = row.insertCell(3);
-                     cell1.innerHTML = newarray[i].bankName;
-                     cell2.innerHTML = newarray[i].investName;
-                     cell3.innerHTML = newarray[i].incomeType;
-                     cell4.innerHTML = calcres[i];
-                               
-                }
-                
-                
+            for(let i=0;i<newarray.length;i++)
+            {      
+                    let row  = table.insertRow(i+1);
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+                    let cell3 = row.insertCell(2);
+                    let cell4 = row.insertCell(3);
+                    cell1.innerHTML = newarray[i].bankName;
+                    cell2.innerHTML = newarray[i].investName;
+                    cell3.innerHTML = newarray[i].incomeType;
+                    cell4.innerHTML =calcres[i] ;
+                            
+            }
+
             }  
 
-        }
-           
-           
+        }      
             
     }
 
-}
+
 
 
 let app = new Application();
-
 document.getElementById('button-count').addEventListener('click',app.run);
 
 
-
-
-//document.getElementById('firstlinetable').style.visibility='visible';
-// const arr = [] ;
-        // arr[0] = '<table><tr><th>Название банка</th><th>Вклад</th><th>Процент</th><th>Итоговая сумма</th>'
