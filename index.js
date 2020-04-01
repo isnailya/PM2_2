@@ -35,10 +35,15 @@ class Calculator {
     };
 
     findBestBank() {
+        let check = false;// ayliq atmir
+        if(this.dep.monthamount==0)
+        {
+            check=false;
+        }
        // let a= typeof this.list[0];
              for (let i = 0; i<this.list.length;i++) 
              {
-                if(this.list[i].incomeType>=this.dep.percent && this.list[i].currency==this.dep.valuta && this.list[i].sumMin<=this.dep.startamount && this.list[i].termMin<=this.dep.depositterm && this.list[i].termMax>=this.dep.depositterm && this.list[i].canDeposit==true) {
+                if(this.list[i].incomeType>=this.dep.percent && this.list[i].currency==this.dep.valuta && this.list[i].sumMin<=this.dep.startamount && this.list[i].termMin<=this.dep.depositterm && this.list[i].termMax>=this.dep.depositterm && check==this.list[i].canDeposit) {
                    //let y = typeof list[i];
                     //this.array+= this.list[i] ;
                     this.array.push(this.list[i]);
@@ -95,8 +100,6 @@ class Application {
         }
         else {
             let deposit = new Deposit(startamount,monthamount,depositterm,valuta);
-            // let bankProduct = new BankProduct( "Газпромбанк",  "Ваш успех",  "RUB", 6.22, 50000, null, 12, 12, false);
-            // let bankProduct2 = new BankProduct("Новый Век", "Сберегательный", "USD", 1.5,  5000,  20000,  12, 12, true );
             let arrayBankProduct=[];
             let list = [{ "bankName": "Газпромбанк", "investName": "Ваш успех", "currency": "RUB", "incomeType": 6.22, "sumMin": 50000, "sumMax": null, "termMin": 12, "termMax": 12, "canDeposit": false },
             { "bankName": "Кредит Европа Банк", "investName": "Оптимальный на 2 года", "currency": "RUB", "incomeType": 6.45, "sumMin": 100000, "sumMax": null, "termMin": 24, "termMax": 24, "canDeposit": false },
